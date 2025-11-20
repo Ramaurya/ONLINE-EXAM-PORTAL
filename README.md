@@ -189,7 +189,7 @@ Distributed under the no License.
 <!-- Contact -->
 ## :handshake: Contact
 
-Raj Kushwaha - [@_chint4n_](https://www.linkedin.com/in/raj-kushwaha-009452360/) - op209402singhgmail.com
+Raj Kushwaha -(https://www.linkedin.com/in/raj-kushwaha-009452360/) - op209402singhgmail.com
 
 
 
