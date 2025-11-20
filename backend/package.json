@@ -1,7 +1,7 @@
 {
-  "author": "Chintan Golakiya",
+  "author": "Raj Kushwaha",
   "bugs": {
-    "url": "https://github.com//backend/issues"
+    "url": "https://github.com//backend/issue"
   },
   "dependencies": {
     "app-root-path": "3.1.0",
