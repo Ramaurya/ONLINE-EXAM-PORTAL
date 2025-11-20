@@ -1,8 +1,95 @@
-.form-class {
-  background-color: white;
-  padding: 50px 100px;
+/* Ensure full height background for the page */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  background: linear-gradient(#141e30, #243b55); /* Consistent Theme */
+  color: #fff;
+  overflow-x: hidden;
 }
 
-h2, .linkbtn {
-  color:black
+/* Main Glass Container */
+.glass-container {
+  background: rgba(0, 0, 0, 0.6) !important; /* Dark semi-transparent */
+  backdrop-filter: blur(10px) !important; /* Glass Blur */
+  border-radius: 15px !important;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 50px 40px !important; /* Spacious padding */
+  color: #f1eee6 !important;
+}
+
+/* Title Styling */
+.form-title {
+  text-align: center;
+  color: #07cfda !important; /* Neon Cyan */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px !important;
+  text-shadow: 0 0 10px rgba(7, 207, 218, 0.3);
+  font-weight: bold !important;
+}
+
+/* --- Overriding Material UI Default Styles for Dark Mode --- */
+
+/* Input Text Color */
+.MuiInputBase-input {
+  color: #fff !important;
+}
+
+/* Label Color (Default) */
+.MuiFormLabel-root {
+  color: #aaa !important;
+}
+
+/* Label Color (Focused) */
+.MuiFormLabel-root.Mui-focused {
+  color: #07cfda !important; /* Neon Cyan */
+}
+
+/* Border Colors (Outlined Input) */
+.MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  transition: 0.3s;
+}
+
+/* Border Color on Hover */
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #fff !important;
+}
+
+/* Border Color on Focus */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #07cfda !important;
+  box-shadow: 0 0 8px rgba(7, 207, 218, 0.3);
+}
+
+/* --- Buttons --- */
+
+/* Primary Button (Add Subject) */
+.btn-neon {
+  background-color: transparent !important;
+  color: #07cfda !important;
+  border: 1px solid #07cfda !important;
+  letter-spacing: 1px;
+  font-weight: bold !important;
+  transition: 0.3s !important;
+}
+
+.btn-neon:hover {
+  background-color: #07cfda !important;
+  color: #141e30 !important; /* Dark text on hover */
+  box-shadow: 0 0 10px #07cfda, 0 0 20px #07cfda;
+}
+
+/* Back Button */
+.btn-back {
+  color: #aaa !important;
+  border-color: #aaa !important;
+}
+
+.btn-back:hover {
+  color: #fff !important;
+  border-color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
 }

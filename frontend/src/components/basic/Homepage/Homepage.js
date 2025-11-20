@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { HomepageHeader } from "../header/header";
 import Login from "../login/login";
 import Auth from '../../../services/Auth';
-import logoImg from './main.jpg';
+import logoImg from './main.png';
 
 function Homepage(){
   console.log("on home page");
@@ -16,7 +16,7 @@ function Homepage(){
     return (
       <div>
           <div className="parallax">
-            <HomepageHeader title='Exam Portal' img={logoImg}/>
+            <HomepageHeader title='' img={logoImg}/>
             <Login />
           </div>
       </div>

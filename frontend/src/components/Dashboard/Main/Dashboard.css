@@ -1,0 +1,71 @@
+/* --- 1. FIX SCROLLING ISSUE --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent side scrolling */
+    overflow-y: auto !important; /* FORCE vertical scroll */
+}
+
+/* --- 2. BEAUTIFUL TABLE STYLING --- */
+/* This targets any table inside the dashboard */
+.dashboard-table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.95rem;
+    font-family: "Segoe UI", sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden;
+}
+
+/* Header Row */
+.dashboard-table-wrapper thead tr {
+    background-color: #07cfda; /* Your Theme Color (Cyan) */
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.dashboard-table-wrapper th, 
+.dashboard-table-wrapper td {
+    padding: 15px 20px;
+}
+
+/* Rows */
+.dashboard-table-wrapper tbody tr {
+    border-bottom: 1px solid #dddddd;
+    transition: all 0.2s ease;
+}
+
+/* Zebra Striping */
+.dashboard-table-wrapper tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
+/* Hover Effect */
+.dashboard-table-wrapper tbody tr:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.005); /* Slight pop effect */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Active/Last Row Border */
+.dashboard-table-wrapper tbody tr:last-of-type {
+    border-bottom: 3px solid #07cfda;
+}
+
+/* --- BADGES (Optional: If you use spans for status) --- */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.status-badge.active { background-color: #00b894; } /* Green */
+.status-badge.blocked { background-color: #ff7675; } /* Red */

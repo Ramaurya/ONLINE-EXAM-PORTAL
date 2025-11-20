@@ -1,0 +1,8 @@
+{
+  "mongodb": {
+    "connectionString": "mongodb://127.0.0.1:27017/online-exam-portal"
+  },
+  "jwt": {
+    "secret": "change_this_to_any_random_secret_password"
+  }
+}

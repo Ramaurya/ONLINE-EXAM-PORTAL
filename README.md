@@ -230,9 +230,8 @@ Distributed under the no License.
 <!-- Contact -->
 ## :handshake: Contact
 
-Chintan Golakiya - [@_chint4n_](https://twitter.com/_chint4n_) - golakiyachintan24@gmail.com
+Raj Kushwaha - [@_chint4n_](https://www.linkedin.com/in/raj-kushwaha-009452360/) - op209402singhgmail.com
 
-Project Link: [https://github.com/chintan-golakiya/online-exam-portal](https://github.com/chintan-golakiya/online-exam-portal)
 
 
 <!-- Acknowledgments -->

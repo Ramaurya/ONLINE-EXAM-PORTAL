@@ -1,65 +1,97 @@
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 import React from "react";
-import {getTeacherDetails, TeacherToggleStatus}  from "../../../redux/actions/teacherDetails";
-import './teacherTable.css'
-
+import { getTeacherDetails, TeacherToggleStatus } from "../../../redux/actions/teacherDetails";
+// 1. Import the dashboard action
+import { getDashboardCount } from "../../../redux/actions/dashboardDetails";
+import "./teacherTable.css";
 
 class TeacherTable extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {}
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  // 2. Define a function that refreshes BOTH the list and the dashboard stats
+  refreshData = () => {
+    this.props.getTeacherDetails(); // Update the table list
+    this.props.getDashboardCount(); // Update the dashboard cards (Active/Blocked counts)
+  };
+
+  handleStatusChange(status, id) {
+    // Pass our combined refresh function as the callback
+    this.props.TeacherToggleStatus(status, id, this.refreshData);
+  }
+
+  render() {
+    if (this.props.teachers.retrived === false) {
+      this.props.getTeacherDetails();
+      return <div style={{ padding: "20px" }}>Loading data...</div>;
     }
 
-    handleStatusChange(status, id) {
-      this.props.TeacherToggleStatus(status,id,this.props.getTeacherDetails);
-    }
-
-    buttonTextBasedOnStatus(status) {
-      if(status === true) {
-        return("block");
-      } else {
-        return("unblock");
-      }
-    }
-
-    render(){
-      if(this.props.teachers.retrived===false) {
-        this.props.getTeacherDetails();
-        return (<div>Collecting data</div>);
-      }
-
-      return (
+    return (
       <div className="main">
-        <h2 className="title">Teachers</h2> 
+        {/* Removed h2 because DashboardMain already shows the title */}
         <table>
           <thead>
-          <tr>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
           </thead>
           <tbody>
-          {this.props.teachers.list.map((val,key)=>{
-            return (
-              <tr key={key}>
-                <td>{val.name}</td>
-                <td>{val.status.toString()}</td>
-                <td><button onClick={()=>(this.handleStatusChange(val.status,val.id))}>{this.buttonTextBasedOnStatus(val.status)}</button></td>
-              </tr>
-            )
-          })}
+            {this.props.teachers.list.map((val, key) => {
+              return (
+                <tr key={key}>
+                  <td style={{ fontWeight: "500" }}>{val.name}</td>
+                  
+                  {/* Beautiful Status Badge */}
+                  <td>
+                    <span
+                      className={`status-badge ${
+                        val.status ? "active" : "blocked"
+                      }`}
+                    >
+                      {val.status ? "Active" : "Blocked"}
+                    </span>
+                  </td>
+
+                  {/* Action Button */}
+                  <td>
+                    <button
+                      onClick={() =>
+                        this.handleStatusChange(val.status, val.id)
+                      }
+                      className={val.status ? "btn-block" : "btn-unblock"} // You can add these classes to CSS
+                      style={{
+                        padding: "5px 15px",
+                        borderRadius: "5px",
+                        border: "none",
+                        cursor: "pointer",
+                        color: "white",
+                        fontWeight: "bold",
+                        backgroundColor: val.status ? "#ff7675" : "#00b894", // Red if active (to block), Green if blocked (to unblock)
+                      }}
+                    >
+                      {val.status ? "Block" : "Unblock"}
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
-      </div>)
-    }
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = state => ({
-  teachers : state.teachers
+const mapStateToProps = (state) => ({
+  teachers: state.teachers,
 });
 
-export default connect(mapStateToProps,{
+export default connect(mapStateToProps, {
   getTeacherDetails,
-  TeacherToggleStatus
+  TeacherToggleStatus,
+  getDashboardCount, // 3. Add this to connect
 })(TeacherTable);

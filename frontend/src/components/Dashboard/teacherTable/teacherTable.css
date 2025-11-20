@@ -1,15 +1,29 @@
-th, td {
-  border : 1px solid black;
+/* Add this to your CSS file */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.main {
-  background-color: aliceblue;
-  color:black;
-  padding: 20px 100px;
-  display: inline-block;
+.status-badge.active {
+  background-color: #00b894; /* Green */
+  box-shadow: 0 2px 5px rgba(0, 184, 148, 0.4);
 }
 
-.title {
-  color:black;
-  text-align: center;
+.status-badge.blocked {
+  background-color: #ff7675; /* Red */
+  box-shadow: 0 2px 5px rgba(255, 118, 117, 0.4);
+}
+
+/* Button Hover Effects */
+button.btn-block:hover {
+  background-color: #d63031 !important;
+}
+
+button.btn-unblock:hover {
+  background-color: #00cec9 !important;
 }

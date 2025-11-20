@@ -15,6 +15,6 @@ class Auth {
     localStorage.removeItem('Token');
   }
 
-
+  
 }
 export default new Auth();;
